@@ -8,7 +8,7 @@ Group 9
 
 Integrants del projecte: Roman Novytskyi, Agustin Chiarello
 
-Crear web aplicacion para recibir Ticets-IT de los users
+Crear web aplicacion para recibir Tickets-IT de los users
 
 Diagrama de cas de us: ![NL6zJiGm3Dxx51xfSA-0xeJ4nd82TfEOobAR7BR3p6kmCTx2nCQQD-59oAKPcbigkT_Fvy_Pgw5OMkO1dKM19qqet8P7Se5T6uwafnWKNsPgVmv-uJ0CgmHskrkuETB4Qe828RuZS73iyxbySUnuTyKfpLPuf8O6_k_ZCuKhmR3cNpkNy8IEyy_O4HvGN45TN418Op7lyMTAGfi0Ka1LdW9wqXAswRSA3YigOFbSRHXEmb7OqCQUtbVgCa](https://github.com/user-attachments/assets/5a309b2c-3687-4a06-93ce-a0ad092ddf88)
 
