@@ -19,7 +19,9 @@ Actualment aquesta interficie web esta siguent desenvolupada i està en procès 
 **WireFraming de les Pantalles:**
 
 Aquest es el primer prototip de les pantalles principals de l'aplicació:
+
 LINK: https://www.figma.com/design/b8CiZoXchhoAZ2I5cbSMpB/Untitled?node-id=0-1&t=DzKbb4Z8bW1DXKQK-1 
+
 
 
 ![image](https://github.com/user-attachments/assets/00d135d2-1fe4-406a-a18d-62eca0b96bcf)
