@@ -1,4 +1,3 @@
-
 FROM php:8.2-apache
 
 # Install PDO MySQL extension and other needed tools
