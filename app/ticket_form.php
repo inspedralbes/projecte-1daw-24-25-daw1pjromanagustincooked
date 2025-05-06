@@ -1,8 +1,5 @@
 <?php
-// Start session
-session_start();
-
-// Database connection (using Docker service name "db")
+// Database connection
 $host = 'db';
 $dbname = 'tickets';
 $username = 'usuari';
@@ -56,4 +53,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
-
