@@ -2,13 +2,7 @@
 // Start session
 session_start();
 
-// If not logged in, redirect to login
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header("Location: login.php");
-    exit();
-}
-
-// ✅ Database connection (using Docker service name "db")
+// Database connection (using Docker service name "db")
 $host = 'db';
 $dbname = 'tickets';
 $username = 'usuari';
@@ -21,13 +15,13 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
-// ✅ Handle form submission
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $department = $_POST['department'];
     $incident_date = $_POST['incident_date'];
     $description = $_POST['description'];
 
-    // ✅ Insert the ticket into the database
+    // Insert the ticket into the database
     $stmt = $pdo->prepare("INSERT INTO incidents (department, incident_date, description) VALUES (?, ?, ?)");
     $stmt->execute([$department, $incident_date, $description]);
 
@@ -60,8 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <input type="submit" value="Submit Ticket">
     </form>
-
-    <p><a href="logout.php">Logout</a></p>
 </body>
 </html>
 
