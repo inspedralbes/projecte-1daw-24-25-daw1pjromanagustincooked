@@ -12,54 +12,73 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
-// Handle form submission
+$ticket_submitted = false;
+$submitted_data = [];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $department = $_POST['department'];
     $incident_date = $_POST['incident_date'];
     $description = $_POST['description'];
 
-    // Insert the ticket into the database
     $stmt = $pdo->prepare("INSERT INTO incidents (department, incident_date, description) VALUES (?, ?, ?)");
     $stmt->execute([$department, $incident_date, $description]);
 
-    echo "<h1>Ticket Submitted!</h1>";
-    echo "<p><strong>Department:</strong> $department</p>";
-    echo "<p><strong>Date of Incident:</strong> $incident_date</p>";
-    echo "<p><strong>Description:</strong><br>" . nl2br(htmlspecialchars($description)) . "</p>";
-    echo '<p><a href="ticket_form.php">Submit another ticket</a></p>';
-    exit();
+    $ticket_submitted = true;
+    $submitted_data = [
+        'department' => $department,
+        'incident_date' => $incident_date,
+        'description' => $description
+    ];
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Open IT Incident Ticket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Open IT Incident Ticket</h1>
-    <form action="ticket_form.php" method="post">
-        <label for="department">Department:</label><br>
-        <input type="text" id="department" name="department" required><br><br>
+<body class="bg-light">
+<div class="container mt-5">
 
-        <label for="incident_date">Date of Incident:</label><br>
-        <input type="date" id="incident_date" name="incident_date" required><br><br>
+    <?php if ($ticket_submitted): ?>
+        <div class="alert alert-success">
+            <h4 class="alert-heading">Ticket Submitted Successfully!</h4>
+            <p><strong>Department:</strong> <?= htmlspecialchars($submitted_data['department']) ?></p>
+            <p><strong>Date of Incident:</strong> <?= htmlspecialchars($submitted_data['incident_date']) ?></p>
+            <p><strong>Description:</strong><br><?= nl2br(htmlspecialchars($submitted_data['description'])) ?></p>
+            <hr>
+            <a href="ticket_form.php" class="btn btn-primary">Submit Another Ticket</a>
+            <hr>
+            <a href="view_tickets.php" class="btn btn-secondary ms-2">View Submitted Tickets</a>
+        </div>
+    <?php else: ?>
 
-        <label for="description">Description:</label><br>
-        <textarea id="description" name="description" rows="5" cols="40" required></textarea><br><br>
+        <h1 class="mb-4">Open IT Incident Ticket</h1>
 
-        <input type="submit" value="Submit Ticket">
-    </form>
-    <a href="view_tickets.php" style="
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-family: sans-serif;
-">View Submitted Tickets</a>
+        <form action="ticket_form.php" method="post" class="card p-4 shadow-sm">
+            <div class="mb-3">
+                <label for="department" class="form-label">Department:</label>
+                <input type="text" id="department" name="department" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="incident_date" class="form-label">Date of Incident:</label>
+                <input type="date" id="incident_date" name="incident_date" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <textarea id="description" name="description" rows="4" class="form-control" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit Ticket</button>
+            <br>
+            <a href="view_tickets.php" class="btn btn-success" style="background-color:rgb(45, 24, 163);">View Submitted Tickets</a>
+        </form>
+
+    <?php endif; ?>
+
+</div>
 </body>
 </html>
