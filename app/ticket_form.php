@@ -51,5 +51,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <input type="submit" value="Submit Ticket">
     </form>
+    <a href="view_tickets.php" style="
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: sans-serif;
+">View Submitted Tickets</a>
 </body>
 </html>
