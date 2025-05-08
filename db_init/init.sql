@@ -12,5 +12,7 @@ CREATE TABLE IF NOT EXISTS incidents (
     department VARCHAR(100),
     incident_date DATE,
     description TEXT,
-    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    priority ENUM('Low', 'Medium', 'High') DEFAULT 'Medium'
 );
+

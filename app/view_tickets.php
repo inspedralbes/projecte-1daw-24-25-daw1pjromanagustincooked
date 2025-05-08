@@ -12,6 +12,18 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
+// Handle priority update
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['update_priority_id'])) {
+    $update_id = intval($_POST['update_priority_id']);
+    $new_priority = $_POST['priority'];
+
+    $stmt = $pdo->prepare("UPDATE incidents SET priority = ? WHERE id = ?");
+    $stmt->execute([$new_priority, $update_id]);
+
+    header("Location: view_tickets.php"); // avoid resubmission
+    exit();
+}
+
 // Handle delete if a request is made
 if (isset($_GET['delete_id'])) {
     $delete_id = intval($_GET['delete_id']);
@@ -31,34 +43,60 @@ $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>View Tickets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>All Submitted Tickets</h1>
-    <p><a href="ticket_form.php">Submit a new ticket</a></p>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="mb-4">All Submitted Tickets</h1>
+    <a href="ticket_form.php" class="btn btn-primary mb-3">Submit a New Ticket</a>
 
     <?php if (count($tickets) > 0): ?>
-        <table border="1" cellpadding="10">
-            <tr>
-                <th>ID</th>
-                <th>Department</th>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Submitted At</th>
-                <th>Action</th>
-            </tr>
-            <?php foreach ($tickets as $ticket): ?>
-                <tr>
-                    <td><?= htmlspecialchars($ticket['id']) ?></td>
-                    <td><?= htmlspecialchars($ticket['department']) ?></td>
-                    <td><?= htmlspecialchars($ticket['incident_date']) ?></td>
-                    <td><?= nl2br(htmlspecialchars($ticket['description'])) ?></td>
-                    <td><?= htmlspecialchars($ticket['submitted_at']) ?></td>
-                    <td><a href="view_tickets.php?delete_id=<?= $ticket['id'] ?>" onclick="return confirm('Are you sure you want to delete this ticket?');">Delete</a></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Department</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Submitted At</th>
+                        <th>Priority</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($tickets as $ticket): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($ticket['id']) ?></td>
+                            <td><?= htmlspecialchars($ticket['department']) ?></td>
+                            <td><?= htmlspecialchars($ticket['incident_date']) ?></td>
+                            <td><?= nl2br(htmlspecialchars($ticket['description'])) ?></td>
+                            <td><?= htmlspecialchars($ticket['submitted_at']) ?></td>
+                            <td>
+                                <form method="post" action="view_tickets.php" class="d-flex align-items-center">
+                                    <input type="hidden" name="update_priority_id" value="<?= $ticket['id'] ?>">
+                                    <select name="priority" class="form-select form-select-sm" onchange="this.form.submit()">
+                                        <option value="Low" <?= $ticket['priority'] === 'Low' ? 'selected' : '' ?>>Low</option>
+                                        <option value="Medium" <?= $ticket['priority'] === 'Medium' ? 'selected' : '' ?>>Medium</option>
+                                        <option value="High" <?= $ticket['priority'] === 'High' ? 'selected' : '' ?>>High</option>
+                                    </select>
+                                </form>
+                            </td>
+                            <td>
+                                <a href="view_tickets.php?delete_id=<?= $ticket['id'] ?>"
+                                   class="btn btn-sm btn-danger"
+                                   onclick="return confirm('Are you sure you want to delete this ticket?');">
+                                   Delete
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     <?php else: ?>
-        <p>No tickets submitted yet.</p>
+        <div class="alert alert-info">No tickets submitted yet.</div>
     <?php endif; ?>
+</div>
 </body>
 </html>
