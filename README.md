@@ -32,6 +32,15 @@ LINK: https://www.figma.com/design/b8CiZoXchhoAZ2I5cbSMpB/Untitled?node-id=0-1&t
 
 
 
+**Esquema E+R de la base de dades**
+aquest es l'esquema sobre com es distribuirà la base de dades que estarà enllaçada al php per emmagatzemar les diferentes incideciès.
+
+
+
+
+**ESTAT DE lA PAGINA WEB 08/5/25**
+La pàgina web actualment segueix en desenvolupament pero ja esta creada desde el docker, a més que ja existeix una interficie gràfica on ja es poden registrar diferentes incidencies i aquestes es queden guardades a la base de dades, a més que desde la mateixa pagina et permet administrar les incidencies que has envitat, com esborrarles o en un futur poder organitzar l'ordre de prioritat d'aquesta.
+
 
 
 
