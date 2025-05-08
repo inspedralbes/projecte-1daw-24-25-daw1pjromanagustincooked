@@ -59,7 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="ticket_form.php" method="post" class="card p-4 shadow-sm">
             <div class="mb-3">
                 <label for="department" class="form-label">Department:</label>
-                <input type="text" id="department" name="department" class="form-control" required>
+                <select id="department" name="department" class="form-select" required>
+                    <option value="">-- Select Department --</option>
+                    <option value="Informatica">Informatica</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Dat Science">Natural Sciences</option>
+                    <option value="Administration">Administration</option>
+                    <option value="Vibe Checkers Department">Vibe Check Department</option>
+                </select>
             </div>
 
             <div class="mb-3">
