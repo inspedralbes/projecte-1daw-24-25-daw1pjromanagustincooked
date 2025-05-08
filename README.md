@@ -7,9 +7,10 @@ Integrants del projecte: **Roman Novytskyi, Agustin Chiarello**
 
 **SOBRE EL PROJECTE**
 
-El nostre objectiu es arribar a crear una pagina web en la qual els usuaris dels diferents departaments a la hora que tinguin alguna incidencia amb un equip informatic i puguin registrar la seva incidencia perque despres l'equip corresponent pugui ser reparat.
+El nostre objectiu és arribar a crear una pàgina web en la qual els usuaris dels diferents departaments a l'hora que tinguin alguna incidència amb un equip informàtic i puguin registrar la seva incidència perquè després l'equip corresponent pugui ser reparat.
 
-Actualment aquesta interficie web esta siguent desenvolupada i està en procès de ser creada, s'aniran pujant les diferentes actualitzacións d'aquesta.
+
+Actualment, aquesta interfície web està sent desenvolupada i està en procés de ser creada, s'aniran pujant les diferents actualitzacions d'aquesta.
 
 
 
@@ -31,6 +32,15 @@ LINK: https://www.figma.com/design/b8CiZoXchhoAZ2I5cbSMpB/Untitled?node-id=0-1&t
 ![image](https://github.com/user-attachments/assets/f82dc3ae-173f-4311-ab51-a6963188dcfa)
 
 
+
+**Esquema E+R de la base de dades**
+aquest es l'esquema sobre com es distribuirà la base de dades que estarà enllaçada al php per emmagatzemar les diferentes incideciès.
+
+
+
+
+**ESTAT DE LA PAGINA WEB 08/5/25**
+La pàgina web actualment segueix en desenvolupament, però ja està creada des del Docker, a més que ja existeix una interfície gràfica on es poden registrar diferents incidències i aquestes es queden guardades a la base de dades, a més que des de la mateixa pàgina et permet administrar les incidències que has enviat, com esborrar-les o en un futur poder organitzar l'ordre de prioritat d'aquesta.
 
 
 
