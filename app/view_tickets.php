@@ -62,6 +62,7 @@ $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>Submitted At</th>
                         <th>Priority</th>
                         <th>Action</th>
+                        <th>Actuacion</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,6 +88,11 @@ $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                    class="btn btn-sm btn-danger"
                                    onclick="return confirm('Are you sure you want to delete this ticket?');">
                                    Delete
+                                </a>
+                            </td>
+                            <td>
+                                <a href = "actuacion.php"
+                                    class="btn btn-sm btn-dark"> Actuacionar
                                 </a>
                             </td>
                         </tr>

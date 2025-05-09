@@ -67,7 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <option value="Dat Science">Natural Sciences</option>
                     <option value="Administration">Administration</option>
                     <option value="Vibe Checkers Department">Vibe Check Department</option>
-                </select>
+                </select> <!--Joan, Ermengol, yo(Roman) se que tengo que hacer selector en manera diferente, 
+                es una resolucion temporal, despues yo voy a crear DB de Depts y hacer selector que referenci a esta BD!! -->
             </div>
 
             <div class="mb-3">
@@ -77,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description:</label>
-                <textarea id="description" name="description" rows="4" class="form-control" required></textarea>
+                <textarea id="description" name="description" rows="4" class="form-control" required minlength="20"></textarea>
             </div>
 
             <button type="submit" class="btn btn-success">Submit Ticket</button>
