@@ -40,9 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateStmt = $pdo->prepare("UPDATE incidents SET resolution_time = ?, resolution_description = ?, status = ?, technician_id = ? WHERE id = ?");
     $updateStmt->execute([$time, $desc, $status, $tech_id, $id]);
 
-    header("Location: view_tickets.php");
-    exit();
-}
+    $success = true;
+
+    // Refresh the ticket data after update
+    $stmt = $pdo->prepare("SELECT * FROM incidents WHERE id = ?");
+    $stmt->execute([$id]);
+    $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -55,24 +59,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="bg-light">
 <div class="container mt-5">
     <h1>Update Ticket #<?= $ticket['id'] ?></h1>
+    <?php if (!empty($success)): ?>
+        <div class="alert alert-success">Ticket updated successfully.</div>
+    <?php endif; ?>
 
     <form method="post" class="card p-4 shadow-sm">
         <div class="mb-3">
             <label class="form-label">Estimated Resolution Time (e.g. 2h, 1 day):</label>
-            <input type="text" name="resolution_time" class="form-control" required>
+            <input type="text" name="resolution_time" class="form-control" required
+            value="<?= htmlspecialchars($ticket['resolution_time'] ?? '') ?>">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Resolution Description:</label>
-            <textarea name="resolution_description" rows="4" class="form-control" required></textarea>
+            <textarea name="resolution_description" rows="4" class="form-control" required>
+            <?= htmlspecialchars($ticket['resolution_description'] ?? '') ?>
+            </textarea>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Status:</label>
             <select name="status" class="form-select" required>
-                <option value="Waiting">Waiting</option>
-                <option value="In Process">In Process</option>
-                <option value="Done">Done</option>
+                <option value="Waiting" <?= $ticket['status'] === 'Waiting' ? 'selected' : '' ?>>Waiting</option>
+                <option value="In Process" <?= $ticket['status'] === 'In Process' ? 'selected' : '' ?>>In Process</option>
+                <option value="Done" <?= $ticket['status'] === 'Done' ? 'selected' : '' ?>>Done</option>
             </select>
         </div>
 
@@ -80,7 +90,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label class="form-label">Technician:</label>
             <select name="technician_id" class="form-select" required>
                 <?php foreach ($technicians as $tech): ?>
-                    <option value="<?= $tech['id'] ?>"><?= htmlspecialchars($tech['name']) ?></option>
+                    <option value="<?= $tech['id'] ?>"
+                        <?= ($ticket['technician_id'] == $tech['id']) ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($tech['name']) ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>
