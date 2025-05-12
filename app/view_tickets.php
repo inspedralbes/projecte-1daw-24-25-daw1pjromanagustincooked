@@ -91,9 +91,7 @@ $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </a>
                             </td>
                             <td>
-                                <a href = "actuacion.php"
-                                    class="btn btn-sm btn-dark"> Actuacionar
-                                </a>
+                                <a href="actuar_ticket.php?id=<?= $ticket['id'] ?>" class="btn btn-dark btn-sm">Actuacionar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

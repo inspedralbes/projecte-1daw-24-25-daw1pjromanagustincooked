@@ -7,11 +7,12 @@ FLUSH PRIVILEGES;
 
 USE tickets;
 
-
 CREATE TABLE IF NOT EXISTS technicians (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    name VARCHAR(100)
 );
+
+INSERT INTO technicians (name) VALUES ('Alice'), ('Bob'), ('Charlie');
 
 CREATE TABLE IF NOT EXISTS incidents (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -20,5 +21,10 @@ CREATE TABLE IF NOT EXISTS incidents (
     description TEXT,
     submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     priority ENUM('Low', 'Medium', 'High') DEFAULT 'Medium'
+    resolution_time VARCHAR(50),
+    resolution_description TEXT,
+    status ENUM('Waiting', 'In Process', 'Done') DEFAULT 'Waiting',
+    technician_id INT,
+    FOREIGN KEY (technician_id) REFERENCES technicians(id) ON DELETE SET NULL
 );
 
