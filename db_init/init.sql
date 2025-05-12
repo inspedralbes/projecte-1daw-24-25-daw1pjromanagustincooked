@@ -20,11 +20,13 @@ CREATE TABLE IF NOT EXISTS incidents (
     incident_date DATE,
     description TEXT,
     submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    priority ENUM('Low', 'Medium', 'High') DEFAULT 'Medium'
+    priority ENUM('Low', 'Medium', 'High') DEFAULT 'Medium',
     resolution_time VARCHAR(50),
     resolution_description TEXT,
     status ENUM('Waiting', 'In Process', 'Done') DEFAULT 'Waiting',
     technician_id INT,
     FOREIGN KEY (technician_id) REFERENCES technicians(id) ON DELETE SET NULL
 );
+
+
 
