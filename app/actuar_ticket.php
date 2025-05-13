@@ -40,6 +40,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateStmt = $pdo->prepare("UPDATE incidents SET resolution_time = ?, resolution_description = ?, status = ?, technician_id = ? WHERE id = ?");
     $updateStmt->execute([$time, $desc, $status, $tech_id, $id]);
 
+    require 'vendor/autoload.php';
+    $mongoClient = new MongoDB\Client("mongodb://root:example@mongo:27017");
+    $logCollection = $mongoClient->ticket_logs->actions;
+
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $hora = date("Y-m-d H:i:s");
+
+    $logCollection->insertOne([
+        'action' => 'ticket_updated',
+        'ticket_id' => $id,
+        'status' => $status,
+        'technician_id' => $tech_id,
+        'ip_origin' => $ip,
+        'timestamp' => $hora
+    ]);
+
     $success = true;
 
     // Refresh the ticket data after update

@@ -86,7 +86,7 @@ $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td>
                                 <a href="view_tickets.php?delete_id=<?= $ticket['id'] ?>"
                                    class="btn btn-sm btn-danger"
-                                   onclick="return confirm('Are you sure you want to delete this ticket?');">
+                                   onclick="return confirm('Are you sure you want to delete this ticket: <?= addslashes(htmlspecialchars($ticket['description'])) ?>?');">
                                    Delete
                                 </a>
                             </td>

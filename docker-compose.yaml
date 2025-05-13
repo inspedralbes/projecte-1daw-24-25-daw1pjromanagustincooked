@@ -16,6 +16,7 @@ services:
       - "8080:80"
     volumes:
       - ./app:/var/www/html
+     # - ./vendor:/var/www/html/vendor
 
     command: /bin/bash -c "composer install --no-interaction --no-plugins --no-scripts && echo WEBSERVER_________UP_________AND_______RUNNIIIIIIING && apache2-foreground"
     environment:
@@ -56,3 +57,13 @@ services:
       - "8081:8080"
     depends_on:
       - db
+
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
