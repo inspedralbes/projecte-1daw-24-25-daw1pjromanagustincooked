@@ -43,5 +43,16 @@ aquest es l'esquema sobre com es distribuirà la base de dades que estarà enlla
 La pàgina web actualment segueix en desenvolupament, però ja està creada des del Docker, a més que ja existeix una interfície gràfica on es poden registrar diferents incidències i aquestes es queden guardades a la base de dades, a més que des de la mateixa pàgina et permet administrar les incidències que has enviat, com esborrar-les o en un futur poder organitzar l'ordre de prioritat d'aquesta.
 
 
+**DIAGRAMA SOBRE L'ARQUITECTURA DE LA WEB**
+Aquest es el diagrama que mostra com es l'arquitectura de la web i com funciona i quina funció te dins de la web cada cosa:
+
+![DIAGRAMA SOBRE L'ARQUITECTURA DE LA WEB](https://github.com/user-attachments/assets/891dbedf-c555-4f78-a288-24d0b2a9e02b)
+
+
+
+**DOCUMENTACIÓ D'ÚS PER USUARIS**
+Aquesta documentació conté totes les guies d'instal·lació i ús per a usuaris/tecnics que vulguin executar el programa de forma local en el seu dispositiu:
+
+[Manual d'usuari de l'aplicació.pdf](https://github.com/user-attachments/files/20205583/Manual.d.usuari.de.l.aplicacio.pdf)
 
 
