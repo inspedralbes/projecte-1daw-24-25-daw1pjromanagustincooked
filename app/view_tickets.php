@@ -1,9 +1,9 @@
 <?php
 // DB connection
-$host = 'db';
-$dbname = 'tickets';
-$username = 'usuari';
-$password = 'paraula_de_pas';
+$host = 'daw.inspedralbes.cat';
+$dbname = 'a24romnovkal_tickets';
+$username = 'a24romnovkal_tickets';
+$password = 'Roma0802hestia)';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);

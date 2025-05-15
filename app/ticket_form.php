@@ -1,9 +1,9 @@
 <?php
 // Database connection
-$host = 'db';
-$dbname = 'tickets';
-$username = 'usuari';
-$password = 'paraula_de_pas';
+$host = 'daw.inspedralbes.cat';
+$dbname = 'a24romnovkal_tickets';
+$username = 'a24romnovkal_tickets';
+$password = 'Roma0802hestia)';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -15,6 +15,16 @@ try {
 $ticket_submitted = false;
 $submitted_data = [];
 
+// Check if redirected with success message in query string (no sessions)
+if (isset($_GET['submitted']) && $_GET['submitted'] === '1') {
+    $ticket_submitted = true;
+    $submitted_data = [
+        'department' => $_GET['dept'] ?? '',
+        'incident_date' => $_GET['date'] ?? '',
+        'description' => $_GET['desc'] ?? ''
+    ];
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $department = $_POST['department'];
     $incident_date = $_POST['incident_date'];
@@ -24,33 +34,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute([$department, $incident_date, $description]);
 
     require 'vendor/autoload.php';
-        $mongoClient = new MongoDB\Client("mongodb://root:example@mongo:27017");
-        $logCollection = $mongoClient->ticket_logs->actions;
+        $uri = "mongodb+srv://a24romnovkal:Roma0802mongodb@clustertickets.uplsnoh.mongodb.net/ticket_logs?retryWrites=true&w=majority";
+        $client = new MongoDB\Client($uri);
+        $collection = $client->ticket_logs->actions;
 
         $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
         $hora = date("Y-m-d H:i:s");
 
-        $logCollection->insertOne([
-            'action' => 'ticket_submitted',
-            'department' => $department,
-            'description' => $description,
-            'ip_origin' => $ip,
-            'timestamp' => $hora
-        ]);
-
-    $ticket_submitted = true;
-    $submitted_data = [
+        $collection->insertOne([
+        'action' => 'ticket_submitted',
         'department' => $department,
-        'incident_date' => $incident_date,
-        'description' => $description
-    ];
+        'description' => $description,
+        'ip_origin' => $ip,
+        'timestamp' => $hora
+    ]);
+
+    $redirect_url = 'ticket_form.php?submitted=1'
+    . '&dept=' . urlencode($department)
+    . '&date=' . urlencode($incident_date)
+    . '&desc=' . urlencode($description);
+
+    header("Location: $redirect_url");
+    exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Open IT Incident Ticket</title>
+   <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">

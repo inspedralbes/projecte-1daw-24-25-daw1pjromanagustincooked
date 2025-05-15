@@ -1,8 +1,8 @@
 <?php
-$host = 'db';
-$dbname = 'tickets';
-$username = 'usuari';
-$password = 'paraula_de_pas';
+$host = 'daw.inspedralbes.cat';
+$dbname = 'a24romnovkal_tickets';
+$username = 'a24romnovkal_tickets';
+$password = 'Roma0802hestia)';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -37,32 +37,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $status = $_POST['status'];
     $tech_id = $_POST['technician_id'];
 
+    // Update MySQL
     $updateStmt = $pdo->prepare("UPDATE incidents SET resolution_time = ?, resolution_description = ?, status = ?, technician_id = ? WHERE id = ?");
     $updateStmt->execute([$time, $desc, $status, $tech_id, $id]);
 
+    // Log to MongoDB Atlas
     require 'vendor/autoload.php';
-    $mongoClient = new MongoDB\Client("mongodb://root:example@mongo:27017");
-    $logCollection = $mongoClient->ticket_logs->actions;
+    $client = new MongoDB\Client("mongodb+srv://a24romnovkal:Roma0802mongodb@clustertickets.uplsnoh.mongodb.net/ticket_logs?retryWrites=true&w=majority&appName=ClusterTickets");
+    $collection = $client->ticket_logs->actions;
 
     $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
     $hora = date("Y-m-d H:i:s");
 
-    $logCollection->insertOne([
+    $collection->insertOne([
         'action' => 'ticket_updated',
         'ticket_id' => $id,
         'status' => $status,
-        'technician_id' => $tech_id,
+        'resolution_time' => $time,
         'ip_origin' => $ip,
         'timestamp' => $hora
     ]);
 
+    // Refresh ticket data and show success message
     $success = true;
-
-    // Refresh the ticket data after update
     $stmt = $pdo->prepare("SELECT * FROM incidents WHERE id = ?");
     $stmt->execute([$id]);
     $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
-    }
+}
 ?>
 
 <!DOCTYPE html>
