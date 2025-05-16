@@ -49,6 +49,7 @@ $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="container mt-5">
     <h1 class="mb-4">All Submitted Tickets</h1>
     <a href="ticket_form.php" class="btn btn-primary mb-3">Submit a New Ticket</a>
+    <a href="ticket_logs.php" class="btn btn-primary mb-3" style="background-color:rgb(45, 24, 163);">View Logs</a>
 
     <?php if (count($tickets) > 0): ?>
         <div class="table-responsive">
