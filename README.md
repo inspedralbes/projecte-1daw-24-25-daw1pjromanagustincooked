@@ -5,7 +5,7 @@
 
 Integrants del projecte: **Roman Novytskyi, Agustin Chiarello**
 
-DOMINI DE LA WEB: www.g9.daw.inspedralbes.cat 
+DOMINI DE LA WEB: www.g9.daw.inspedralbes.cat/ticket_form.php
 
 **SOBRE EL PROJECTE**
 
