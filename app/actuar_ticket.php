@@ -79,7 +79,7 @@ $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <title>Actuar Ticket</title>
@@ -89,7 +89,7 @@ $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
 <div class="container mt-5">
     <h1>Update Ticket #<?= $ticket['id'] ?></h1>
     <?php if (!empty($success)): ?>
-        <div class="alert alert-success">Ticket updated successfully.</div>
+        <div class="alert alert-success">Incidencia actualitzada satisfactoriament.</div>
     <?php endif; ?>
 
     <form method="post" class="card p-4 shadow-sm">
@@ -113,14 +113,14 @@ $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
         <div class="mb-3">
             <label class="form-label">Status:</label>
             <select name="status" class="form-select" required>
-                <option value="Waiting" <?= $ticket['status'] === 'Waiting' ? 'selected' : '' ?>>Waiting</option>
-                <option value="In Process" <?= $ticket['status'] === 'In Process' ? 'selected' : '' ?>>In Process</option>
-                <option value="Done" <?= $ticket['status'] === 'Done' ? 'selected' : '' ?>>Done</option>
+                <option value="Waiting" <?= $ticket['status'] === 'Waiting' ? 'selected' : '' ?>>Esperant</option>
+                <option value="In Process" <?= $ticket['status'] === 'In Process' ? 'selected' : '' ?>>En procés</option>
+                <option value="Done" <?= $ticket['status'] === 'Done' ? 'selected' : '' ?>>Fet</option>
             </select>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Technician:</label>
+            <label class="form-label">Tecnics:</label>
             <select name="technician_id" class="form-select" required>
                 <?php foreach ($technicians as $tech): ?>
                     <option value="<?= $tech['id'] ?>" <?= ($ticket['technician_id'] == $tech['id']) ? 'selected' : '' ?>>
@@ -130,9 +130,9 @@ $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
             </select>
         </div>
 
-        <button type="submit" class="btn btn-success">Submit Update</button>
+        <button type="submit" class="btn btn-success">Pujar actualització</button>
         <hr>
-        <a href="view_tickets.php<?= $extra_query ?>" class="btn btn-success" style="background-color:rgb(45, 16, 124)">Return</a>
+        <a href="view_tickets.php<?= $extra_query ?>" class="btn btn-success" style="background-color:rgb(45, 16, 124)">Retornar</a>
     </form>
 </div>
 </body>

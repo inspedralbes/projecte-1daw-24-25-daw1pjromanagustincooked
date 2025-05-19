@@ -69,18 +69,18 @@ if ($is_admin) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <title>View Tickets</title>
+    <title>Veure incindencies</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 <div class="container mt-5">
-    <h1 class="mb-4">All Submitted Tickets</h1>
-    <a href="ticket_form.php" class="btn btn-primary mb-3">Submit a New Ticket</a>
+    <h1 class="mb-4">Incidencies pujades</h1>
+    <a href="ticket_form.php" class="btn btn-primary mb-3">pujar nova incidencia</a>
     <?php if ($is_admin): ?>
-        <a href="ticket_logs.php" class="btn btn-primary mb-3" style="background-color:rgb(45, 24, 163);">View Logs</a>
+        <a href="ticket_logs.php" class="btn btn-primary mb-3" style="background-color:rgb(45, 24, 163);">Veure Logs</a>
     <?php endif; ?>
 
     <?php if (count($tickets) > 0): ?>
@@ -89,9 +89,9 @@ if ($is_admin) {
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Department</th>
-                        <th>Date</th>
-                        <th>Description</th>
+                        <th>Departament</th>
+                        <th>Data</th>
+                        <th>Descripció</th>
                         <th>Submitted At</th>
                         <th>Priority</th>
                         <th>Action</th>
@@ -137,7 +137,7 @@ if ($is_admin) {
             </table>
         </div>
     <?php else: ?>
-        <div class="alert alert-info">No tickets submitted yet.</div>
+        <div class="alert alert-info">No s'ha pujat cap incidencia.</div>
     <?php endif; ?>
 </div>
 </body>
