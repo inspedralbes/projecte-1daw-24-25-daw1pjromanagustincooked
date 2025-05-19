@@ -40,7 +40,7 @@ aquest es l'esquema sobre com es distribuirà la base de dades que estarà enlla
 
 
 
-**ESTAT DE LA PAGINA WEB 08/5/25**
+**ESTAT DE LA PAGINA WEB 08/05/25**
 
 La pàgina web actualment segueix en desenvolupament, però ja està creada des del Docker, a més que ja existeix una interfície gràfica on es poden registrar diferents incidències i aquestes es queden guardades a la base de dades, a més que des de la mateixa pàgina et permet administrar les incidències que has enviat, com esborrar-les o en un futur poder organitzar l'ordre de prioritat d'aquesta.
 
@@ -54,7 +54,9 @@ Aquest es el diagrama que mostra com es l'arquitectura de la web i com funciona 
 
 
 
+
 **DOCUMENTACIÓ D'ÚS PER USUARIS**
+
 
 Aquesta documentació conté totes les guies d'instal·lació i ús per a usuaris/tecnics que vulguin executar el programa de forma local en el seu dispositiu:
 
@@ -62,3 +64,8 @@ Aquesta documentació conté totes les guies d'instal·lació i ús per a usuari
 [Manual d'usuari de l'aplicació.pdf](https://github.com/user-attachments/files/20278817/Manual.d.usuari.de.l.aplicacio.pdf)
 
 
+
+**ESTAT DE LA PAGINA WEB 19/05/25**
+
+
+L'estructura de la pàgina web ja està enllestida, a més de que l'aplicació ja està desplegada al seu domini propi. La pàgina ja casi esta completa i ja es completament funcional i s'estan acabant de implementar les ultimes funcions les quals vincula els diferents logins amb les bases de dades o senzillament el selector de departaments a la hora de registrar una incidencia.
