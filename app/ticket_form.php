@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="mb-3">
                 <label for="department" class="form-label">Departament:</label>
                 <select id="department" name="department" class="form-select" required>
-                    <option value="">-- Select Department --</option>
+                    <option value="">-- Seleccionar Departament --</option>
                     <?php foreach ($departments as $dept): ?>
                         <option value="<?= htmlspecialchars($dept['department']) ?>">
                             <?= htmlspecialchars($dept['department']) ?>
