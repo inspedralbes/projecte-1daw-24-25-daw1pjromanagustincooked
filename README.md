@@ -10,16 +10,16 @@ Integrants del projecte: **Roman Novytskyi, Agustin Chiarello**
 El nostre objectiu és arribar a crear una pàgina web en la qual els usuaris dels diferents departaments a l'hora que tinguin alguna incidència amb un equip informàtic i puguin registrar la seva incidència perquè després l'equip corresponent pugui ser reparat.
 
 
-Actualment, aquesta interfície web està sent desenvolupada i està en procés de ser creada, s'aniran pujant les diferents actualitzacions d'aquesta.
+Actualment, aquesta interfície web està en procés de desenvolupament i està en espera de ser creada, s'aniran pujant les diferents actualitzacions d'aquesta.
 
 
 
-**Diagrama de cas de us:** ![NL6zJiGm3Dxx51xfSA-0xeJ4nd82TfEOobAR7BR3p6kmCTx2nCQQD-59oAKPcbigkT_Fvy_Pgw5OMkO1dKM19qqet8P7Se5T6uwafnWKNsPgVmv-uJ0CgmHskrkuETB4Qe828RuZS73iyxbySUnuTyKfpLPuf8O6_k_ZCuKhmR3cNpkNy8IEyy_O4HvGN45TN418Op7lyMTAGfi0Ka1LdW9wqXAswRSA3YigOFbSRHXEmb7OqCQUtbVgCa](https://github.com/user-attachments/assets/5a309b2c-3687-4a06-93ce-a0ad092ddf88)
+**Diagrama de cas d'ús:** ![NL6zJiGm3Dxx51xfSA-0xeJ4nd82TfEOobAR7BR3p6kmCTx2nCQQD-59oAKPcbigkT_Fvy_Pgw5OMkO1dKM19qqet8P7Se5T6uwafnWKNsPgVmv-uJ0CgmHskrkuETB4Qe828RuZS73iyxbySUnuTyKfpLPuf8O6_k_ZCuKhmR3cNpkNy8IEyy_O4HvGN45TN418Op7lyMTAGfi0Ka1LdW9wqXAswRSA3YigOFbSRHXEmb7OqCQUtbVgCa](https://github.com/user-attachments/assets/5a309b2c-3687-4a06-93ce-a0ad092ddf88)
 
 
 **WireFraming de les Pantalles:**
 
-Aquest es el primer prototip de les pantalles principals de l'aplicació:
+Aquest és el primer prototip de les pantalles principals de l'aplicació:
 
 LINK: https://www.figma.com/design/b8CiZoXchhoAZ2I5cbSMpB/Untitled?node-id=0-1&t=DzKbb4Z8bW1DXKQK-1 
 
@@ -40,14 +40,14 @@ aquest es l'esquema sobre com es distribuirà la base de dades que estarà enlla
 
 
 
-**ESTAT DE LA PAGINA WEB 08/05/25**
+**ESTAT DE LA PÀGINA WEB 08/05/25**
 
 La pàgina web actualment segueix en desenvolupament, però ja està creada des del Docker, a més que ja existeix una interfície gràfica on es poden registrar diferents incidències i aquestes es queden guardades a la base de dades, a més que des de la mateixa pàgina et permet administrar les incidències que has enviat, com esborrar-les o en un futur poder organitzar l'ordre de prioritat d'aquesta.
 
 
 **DIAGRAMA SOBRE L'ARQUITECTURA DE LA WEB**
 
-Aquest es el diagrama que mostra com es l'arquitectura de la web i com funciona i quina funció te dins de la web cada cosa:
+Aquest és el diagrama que mostra com és l'arquitectura de la web i com funciona i quina funció té dins de la web cada cosa:
 
 
 ![diagrama simple de l'arquitectura del sistema drawio (1)](https://github.com/user-attachments/assets/0e59a44d-51ec-44e2-8539-3829dbb71b19)
@@ -58,7 +58,7 @@ Aquest es el diagrama que mostra com es l'arquitectura de la web i com funciona 
 **DOCUMENTACIÓ D'ÚS PER USUARIS**
 
 
-Aquesta documentació conté totes les guies d'instal·lació i ús per a usuaris/tecnics que vulguin executar el programa de forma local en el seu dispositiu:
+Aquesta documentació conté totes les guies d'instal·lació i ús per a usuaris/tècnics que vulguin executar el programa de forma local en el seu dispositiu:
 
 
 [Manual d'usuari de l'aplicació.pdf](https://github.com/user-attachments/files/20278817/Manual.d.usuari.de.l.aplicacio.pdf)
@@ -68,4 +68,4 @@ Aquesta documentació conté totes les guies d'instal·lació i ús per a usuari
 **ESTAT DE LA PAGINA WEB 19/05/25**
 
 
-L'estructura de la pàgina web ja està enllestida, a més de que l'aplicació ja està desplegada al seu domini propi. La pàgina ja casi esta completa i ja es completament funcional i s'estan acabant de implementar les ultimes funcions les quals vincula els diferents logins amb les bases de dades o senzillament el selector de departaments a la hora de registrar una incidencia.
+L'estructura de la pàgina web ja està enllestida, a més que l'aplicació ja està desplegada al seu domini propi. La pàgina ja quasi està completa i ja és completament funcional i s'estan acabant d'implementar les últimes funcions les quals vincula els diferents logins amb les bases de dades o senzillament el selector de departaments a l'hora de registrar una incidència.
