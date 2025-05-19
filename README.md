@@ -49,7 +49,8 @@ La pàgina web actualment segueix en desenvolupament, però ja està creada des 
 
 Aquest es el diagrama que mostra com es l'arquitectura de la web i com funciona i quina funció te dins de la web cada cosa:
 
-![diagrama simple de l'arquitectura del sistema](https://github.com/user-attachments/assets/489949e0-c115-4989-a545-801da6458be1)
+
+![diagrama simple de l'arquitectura del sistema drawio](https://github.com/user-attachments/assets/c8c891d9-1e28-41ac-9c88-275a9d609195)
 
 
 
