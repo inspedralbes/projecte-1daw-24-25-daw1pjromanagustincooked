@@ -5,6 +5,8 @@
 
 Integrants del projecte: **Roman Novytskyi, Agustin Chiarello**
 
+DOMINI DE LA WEB: www.g9.daw.inspedralbes.cat 
+
 **SOBRE EL PROJECTE**
 
 El nostre objectiu és arribar a crear una pàgina web en la qual els usuaris dels diferents departaments a l'hora que tinguin alguna incidència amb un equip informàtic i puguin registrar la seva incidència perquè després l'equip corresponent pugui ser reparat.
