@@ -92,7 +92,7 @@ if ($is_admin) {
                         <th>Departament</th>
                         <th>Data</th>
                         <th>Descripció</th>
-                        <th>Pujats</th>
+                        <th>Data de tramesa</th>
                         <th>Prioritat</th>
                         <th>Acció</th>
                         <th>Gestionar</th>
@@ -129,7 +129,7 @@ if ($is_admin) {
                                 </a>
                             </td>
                             <td>
-                                <a href="actuar_ticket.php?id=<?= $ticket['id'] ?><?= $extra_query ? '&' . ltrim($extra_query, '?') : '' ?>" class="btn btn-dark btn-sm">Actuacionar</a>
+                                <a href="actuar_ticket.php?id=<?= $ticket['id'] ?><?= $extra_query ? '&' . ltrim($extra_query, '?') : '' ?>" class="btn btn-dark btn-sm">Actualitzar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
