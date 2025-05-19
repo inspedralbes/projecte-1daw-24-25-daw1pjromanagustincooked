@@ -114,13 +114,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="mt-4 d-flex gap-2">
                 <!-- Admin access form -->
                 <form action="view_tickets.php" method="get" class="d-flex gap-2">
-                    <input type="password" name="admin_code" class="form-control" placeholder="Admin code">
+                    <input type="password" name="admin_code" class="form-control" placeholder="Codi d'admin">
                     <button type="submit" class="btn btn-dark">Veure com a admin</button>
                 </form>
 
                 <!-- Technician access form -->
                 <form action="view_tickets.php" method="get" class="d-flex gap-2">
-                    <input type="number" name="tech_id" class="form-control" placeholder="Technician ID">
+                    <input type="number" name="tech_id" class="form-control" placeholder="ID de Tècnic">
                     <button type="submit" class="btn btn-secondary">Veure com a tècnic</button>
                 </form>
             </div>
