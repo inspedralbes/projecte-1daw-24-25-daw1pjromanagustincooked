@@ -12,6 +12,10 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
+// Fetch departments dynamically
+$deptStmt = $pdo->query("SELECT DISTINCT department FROM technicians ORDER BY department ASC");
+$departments = $deptStmt->fetchAll(PDO::FETCH_ASSOC);
+
 $ticket_submitted = false;
 $submitted_data = [];
 
@@ -57,8 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: $redirect_url");
     exit();
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,8 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p><strong>Description:</strong><br><?= nl2br(htmlspecialchars($submitted_data['description'])) ?></p>
             <hr>
             <a href="ticket_form.php" class="btn btn-primary">Submit Another Ticket</a>
-            <hr>
-            <a href="view_tickets.php" class="btn btn-secondary ms-2">View Submitted Tickets</a>
         </div>
     <?php else: ?>
 
@@ -88,19 +90,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="department" class="form-label">Department:</label>
                 <select id="department" name="department" class="form-select" required>
                     <option value="">-- Select Department --</option>
-                    <option value="Informatica">Informatica</option>
-                    <option value="Engineering">Engineering</option>
-                    <option value="Human Resources">Human Resources</option>
-                    <option value="Dat Science">Natural Sciences</option>
-                    <option value="Administration">Administration</option>
-                    <option value="Vibe Checkers Department">Vibe Check Department</option>
-                </select> <!--Joan, Ermengol, yo(Roman) se que tengo que hacer selector en manera diferente, 
-                es una resolucion temporal, despues yo voy a crear DB de Depts y hacer selector que referenci a esta BD!! -->
+                    <?php foreach ($departments as $dept): ?>
+                        <option value="<?= htmlspecialchars($dept['department']) ?>">
+                            <?= htmlspecialchars($dept['department']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
 
             <div class="mb-3">
                 <label for="incident_date" class="form-label">Date of Incident:</label>
-                <input type="date" id="incident_date" name="incident_date" class="form-control" required>
+                <input type="date" id="incident_date" name="incident_date" class="form-control" required value="<?= date('Y-m-d') ?>" readonly>
             </div>
 
             <div class="mb-3">
@@ -109,9 +109,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <button type="submit" class="btn btn-success">Submit Ticket</button>
-            <br>
-            <a href="view_tickets.php" class="btn btn-success" style="background-color:rgb(45, 24, 163);">View Submitted Tickets</a>
-        </form>
+            </form>
+
+            <div class="mt-4 d-flex gap-2">
+                <!-- Admin access form -->
+                <form action="view_tickets.php" method="get" class="d-flex gap-2">
+                    <input type="password" name="admin_code" class="form-control" placeholder="Admin code">
+                    <button type="submit" class="btn btn-dark">View as Admin</button>
+                </form>
+
+                <!-- Technician access form -->
+                <form action="view_tickets.php" method="get" class="d-flex gap-2">
+                    <input type="number" name="tech_id" class="form-control" placeholder="Technician ID">
+                    <button type="submit" class="btn btn-secondary">View as Technician</button>
+                </form>
+            </div>
 
     <?php endif; ?>
 

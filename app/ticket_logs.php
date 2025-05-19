@@ -19,7 +19,7 @@ $logs = $collection->find([], ['sort' => ['timestamp' => -1]]);
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="text-primary">Ticket Action Logs</h1>
-        <a href="view_tickets.php" class="btn btn-dark">Exit</a>
+        <a href="view_tickets.php?admin_code=kirilydavidgey" class="btn btn-dark">Exit</a>
     </div>
 
     <ul class="list-group">
