@@ -101,17 +101,17 @@ $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php endif; ?>
 
         <div class="mb-3">
-            <label class="form-label">Estimated Resolution Time:</label>
+            <label class="form-label">Temps estimat de reparació:</label>
             <input type="text" name="resolution_time" class="form-control" required value="<?= htmlspecialchars($ticket['resolution_time'] ?? '') ?>">
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Resolution Description:</label>
+            <label class="form-label">Descripcio de la resolució:</label>
             <textarea name="resolution_description" rows="4" class="form-control" required><?= htmlspecialchars($ticket['resolution_description'] ?? '') ?></textarea>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Status:</label>
+            <label class="form-label">Estat:</label>
             <select name="status" class="form-select" required>
                 <option value="Waiting" <?= $ticket['status'] === 'Waiting' ? 'selected' : '' ?>>Esperant</option>
                 <option value="In Process" <?= $ticket['status'] === 'In Process' ? 'selected' : '' ?>>En procés</option>

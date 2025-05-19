@@ -8,7 +8,7 @@ $logs = $collection->find([], ['sort' => ['timestamp' => -1]]);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <title>Ticket Logs</title>
@@ -18,7 +18,7 @@ $logs = $collection->find([], ['sort' => ['timestamp' => -1]]);
 <div class="container mt-5">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="text-primary">Ticket Action Logs</h1>
+        <h1 class="text-primary">Logs Acció Incidencies</h1>
         <a href="view_tickets.php?admin_code=kirilydavidgey" class="btn btn-dark">Exit</a>
     </div>
 

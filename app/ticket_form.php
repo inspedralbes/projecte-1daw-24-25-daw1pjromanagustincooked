@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
    <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -74,20 +74,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <?php if ($ticket_submitted): ?>
         <div class="alert alert-success">
-            <h4 class="alert-heading">Ticket Submitted Successfully!</h4>
-            <p><strong>Department:</strong> <?= htmlspecialchars($submitted_data['department']) ?></p>
-            <p><strong>Date of Incident:</strong> <?= htmlspecialchars($submitted_data['incident_date']) ?></p>
-            <p><strong>Description:</strong><br><?= nl2br(htmlspecialchars($submitted_data['description'])) ?></p>
+            <h4 class="alert-heading">Incidencia pujada correctament!</h4>
+            <p><strong>Departament:</strong> <?= htmlspecialchars($submitted_data['department']) ?></p>
+            <p><strong>Data de la incidencia:</strong> <?= htmlspecialchars($submitted_data['incident_date']) ?></p>
+            <p><strong>Descripció:</strong><br><?= nl2br(htmlspecialchars($submitted_data['description'])) ?></p>
             <hr>
-            <a href="ticket_form.php" class="btn btn-primary">Submit Another Ticket</a>
+            <a href="ticket_form.php" class="btn btn-primary">Pujar una altre Incidencia</a>
         </div>
     <?php else: ?>
 
-        <h1 class="mb-4">Open IT Incident Ticket</h1>
+        <h1 class="mb-4">Incidencies Informatiques</h1>
 
         <form action="ticket_form.php" method="post" class="card p-4 shadow-sm">
             <div class="mb-3">
-                <label for="department" class="form-label">Department:</label>
+                <label for="department" class="form-label">Departament:</label>
                 <select id="department" name="department" class="form-select" required>
                     <option value="">-- Select Department --</option>
                     <?php foreach ($departments as $dept): ?>
@@ -99,29 +99,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="mb-3">
-                <label for="incident_date" class="form-label">Date of Incident:</label>
+                <label for="incident_date" class="form-label">Data d'incidencia:</label>
                 <input type="date" id="incident_date" name="incident_date" class="form-control" required value="<?= date('Y-m-d') ?>" readonly>
             </div>
 
             <div class="mb-3">
-                <label for="description" class="form-label">Description:</label>
+                <label for="description" class="form-label">Descripció:</label>
                 <textarea id="description" name="description" rows="4" class="form-control" required minlength="20"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-success">Submit Ticket</button>
+            <button type="submit" class="btn btn-success">Pujar incidencia</button>
             </form>
 
             <div class="mt-4 d-flex gap-2">
                 <!-- Admin access form -->
                 <form action="view_tickets.php" method="get" class="d-flex gap-2">
                     <input type="password" name="admin_code" class="form-control" placeholder="Admin code">
-                    <button type="submit" class="btn btn-dark">View as Admin</button>
+                    <button type="submit" class="btn btn-dark">Veure com a admin</button>
                 </form>
 
                 <!-- Technician access form -->
                 <form action="view_tickets.php" method="get" class="d-flex gap-2">
                     <input type="number" name="tech_id" class="form-control" placeholder="Technician ID">
-                    <button type="submit" class="btn btn-secondary">View as Technician</button>
+                    <button type="submit" class="btn btn-secondary">Veure com a tècnic</button>
                 </form>
             </div>
 

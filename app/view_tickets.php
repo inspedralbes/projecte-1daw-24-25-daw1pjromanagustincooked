@@ -92,10 +92,10 @@ if ($is_admin) {
                         <th>Departament</th>
                         <th>Data</th>
                         <th>Descripció</th>
-                        <th>Submitted At</th>
-                        <th>Priority</th>
-                        <th>Action</th>
-                        <th>Actuacion</th>
+                        <th>Pujats</th>
+                        <th>Prioritat</th>
+                        <th>Acció</th>
+                        <th>Gestionar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -115,9 +115,9 @@ if ($is_admin) {
                                         <input type="hidden" name="tech_id" value="<?= $technician_id ?>">
                                     <?php endif; ?>
                                     <select name="priority" class="form-select form-select-sm" onchange="this.form.submit()">
-                                        <option value="Low" <?= $ticket['priority'] === 'Low' ? 'selected' : '' ?>>Low</option>
-                                        <option value="Medium" <?= $ticket['priority'] === 'Medium' ? 'selected' : '' ?>>Medium</option>
-                                        <option value="High" <?= $ticket['priority'] === 'High' ? 'selected' : '' ?>>High</option>
+                                        <option value="Low" <?= $ticket['priority'] === 'Low' ? 'selected' : '' ?>>baixa</option>
+                                        <option value="Medium" <?= $ticket['priority'] === 'Medium' ? 'selected' : '' ?>>mitjana</option>
+                                        <option value="High" <?= $ticket['priority'] === 'High' ? 'selected' : '' ?>>Alta</option>
                                     </select>
                                 </form>
                             </td>
@@ -125,7 +125,7 @@ if ($is_admin) {
                                 <a href="view_tickets.php?delete_id=<?= $ticket['id'] ?><?= $extra_query ? '&' . ltrim($extra_query, '?') : '' ?>"
                                    class="btn btn-sm btn-danger"
                                    onclick="return confirm('Are you sure you want to delete this ticket: <?= addslashes(htmlspecialchars($ticket['description'])) ?>?');">
-                                   Delete
+                                   Esborrar
                                 </a>
                             </td>
                             <td>
