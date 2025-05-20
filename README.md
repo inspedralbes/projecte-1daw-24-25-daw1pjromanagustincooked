@@ -57,7 +57,7 @@ Aquest és el diagrama que mostra com és l'arquitectura de la web i com funcion
 
 
 
-**DOCUMENTACIÓ D'ÚS PER USUARIS**
+**DOCUMENTACIÓ D'ÚS PER TECNIC**
 
 
 Aquesta documentació conté totes les guies d'instal·lació i ús per a usuaris/tècnics que vulguin executar el programa de forma local en el seu dispositiu:
@@ -71,3 +71,9 @@ Aquesta documentació conté totes les guies d'instal·lació i ús per a usuari
 
 
 L'estructura de la pàgina web ja està enllestida, a més que l'aplicació ja està desplegada al seu domini propi. La pàgina ja quasi està completa i ja és completament funcional i s'estan acabant d'implementar les últimes funcions les quals vincula els diferents logins amb les bases de dades o senzillament el selector de departaments a l'hora de registrar una incidència.
+
+**Documentacion adicional**
+
+User guide: https://docs.google.com/document/d/162q0Sb20N0ze_Me6mpb_q4xR7kul_op6hGUE_exdDH4/edit?usp=drive_link
+Design documentation: https://docs.google.com/document/d/1UQ61uUrPxCQF1CUEnvVPyoyKVC4H4KNbW0t-1t7Stvo/edit?usp=drive_link
+Video shocase of apps functionality: https://drive.google.com/file/d/1LdzMivQTZ_XNZLUybRtJ41gMmDaOx4aQ/view?usp=drive_link
