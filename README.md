@@ -74,6 +74,6 @@ L'estructura de la pàgina web ja està enllestida, a més que l'aplicació ja e
 
 **Documentacion adicional**
 
-User guide: https://docs.google.com/document/d/162q0Sb20N0ze_Me6mpb_q4xR7kul_op6hGUE_exdDH4/edit?usp=drive_link
-Design documentation: https://docs.google.com/document/d/1UQ61uUrPxCQF1CUEnvVPyoyKVC4H4KNbW0t-1t7Stvo/edit?usp=drive_link
-Video shocase of apps functionality: https://drive.google.com/file/d/1LdzMivQTZ_XNZLUybRtJ41gMmDaOx4aQ/view?usp=drive_link
+  User guide: https://docs.google.com/document/d/162q0Sb20N0ze_Me6mpb_q4xR7kul_op6hGUE_exdDH4/edit?usp=drive_link
+  Design documentation: https://docs.google.com/document/d/1UQ61uUrPxCQF1CUEnvVPyoyKVC4H4KNbW0t-1t7Stvo/edit?usp=drive_link
+  Video shocase of apps functionality: https://drive.google.com/file/d/1LdzMivQTZ_XNZLUybRtJ41gMmDaOx4aQ/view?usp=drive_link
