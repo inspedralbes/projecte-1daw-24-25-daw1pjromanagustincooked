@@ -63,7 +63,7 @@ Aquest és el diagrama que mostra com és l'arquitectura de la web i com funcion
 Aquesta documentació conté totes les guies d'instal·lació i ús per a usuaris/tècnics que vulguin executar el programa de forma local en el seu dispositiu:
 
 
-[Manual d'usuari de l'aplicació.pdf](https://github.com/user-attachments/files/20278817/Manual.d.usuari.de.l.aplicacio.pdf)
+[Manual d'usuari de l'aplicació.pdf](https://github.com/user-attachments/files/20278817/Manual.d.usuari.de.l.aplicacio.pdf) <--Documentacion de sistemas!!!
 
 
 
